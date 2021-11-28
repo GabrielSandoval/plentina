@@ -13,6 +13,7 @@ data = {
     "newbalanceDest": 0.0
 }
 
+# Not fraud
 # data = {
 #     "step":1,
 #     "type":"PAYMENT",
@@ -25,5 +26,5 @@ data = {
 #     "newbalanceDest":0.0
 # }
 
-response = requests.post("http://ec2-3-82-148-48.compute-1.amazonaws.com/is-fraud", json=data)
+response = requests.post("http://ec2-44-198-192-99.compute-1.amazonaws.com/is-fraud", json=data)
 print(response.json())

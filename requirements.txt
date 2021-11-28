@@ -7,11 +7,8 @@ matplotlib
 fastapi
 uvicorn
 pydantic
-<<<<<<< HEAD
-pickle
-=======
 pickle-mixin
 plotly
 sqlalchemy
 mysqlclient
->>>>>>> afdbc5f (Organize files)
+imbalanced-learn

@@ -21,7 +21,7 @@
 ├── test
 │   └── Train.ipynb                        <- Test fraud detection API
 │
-├── api.py                                 <- FastApi application
+├── app.py                                 <- FastApi application
 |
 ├── dockerfile                             <- Build docker image
 │
@@ -36,14 +36,20 @@ pip install -r requirements.txt
 ```
 
 ### Model
+#### Cross-validation
+<img src="https://raw.githubusercontent.com/GabrielSandoval/plentina/master/docs/KFoldCV.png" width=400>
+
+#### CV F1Score and Accuracy
+<img src="https://raw.githubusercontent.com/GabrielSandoval/plentina/master/docs/Metrics.png" width=400>
+
+#### AUC
+<img src="https://raw.githubusercontent.com/GabrielSandoval/plentina/master/docs/AUC.png" width=400>
+
+#### Test F1Score and Accuracy
+
 ```
-Features:   [type amount oldbalanceOrig newbalanceOrig oldbalanceDest newbalanceDest]
-
-Train Size: 80%
-Test Size:  20%
-
-Accuracy:   0.9996
-F1-Score:   0.8202
+F1Score: 0.8028
+Accuracy: 0.9995
 ```
 
 ### Run API locally
@@ -55,7 +61,7 @@ uvicorn app:app --host 0.0.0.0 --port 8080
 ### Deployed API endpoint:
 
 ```
-POST http://ec2-3-82-148-48.compute-1.amazonaws.com/is-fraud
+POST http://ec2-44-198-192-99.compute-1.amazonaws.com/is-fraud
 Params:
     "step": 699,
     "type": "TRANSFER",
