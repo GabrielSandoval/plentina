@@ -1,0 +1,2 @@
+ARTIFACTS_PATH="artifacts/artifacts.pkl"
+DATABASE_URL = "mysql://<username>:<password>@<host>/<database>"

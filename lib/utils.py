@@ -11,12 +11,6 @@ def load_artifacts(artifact_path):
             artifacts["scaler"],
         )
 
-def lookup(transactions, transaction):
-    return transactions[
-        (transactions["nameOrig"] == transaction.nameOrig) &
-        (transactions["step"] == transaction.step)
-    ]
-
 def transform(transaction, type_encoder):
     transaction.type = transaction.type if transaction.type in type_encoder.classes_ else "<unknown>"
     transaction.type = np.where(type_encoder.classes_ == transaction.type)[0]

@@ -1,12 +1,14 @@
-from lib.utils import *
-from lib.transaction import Transaction
-
 import pandas as pd
 from fastapi import FastAPI
 
+from lib.constants import ARTIFACTS_PATH
+from lib.db import *
+from lib.utils import *
+from lib.transaction import Transaction
+
+conn = create_db_connection()
 app = FastAPI()
-transactions = pd.read_csv("data/transactions_train.csv")
-type_encoder, model, scaler = load_artifacts("artifacts/artifacts.pkl")
+type_encoder, model, scaler = load_artifacts(ARTIFACTS_PATH)
 
 @app.get("/")
 async def root():
@@ -14,11 +16,11 @@ async def root():
 
 @app.post("/is-fraud")
 async def is_fraud(transaction: Transaction):
-    global transactions
-    transactions = transactions.append(dict(transaction), ignore_index=True)
+    insert_transaction(conn, dict(transaction))
 
-    prev_transactions = lookup(transactions, transaction)
-    if len(prev_transactions) >= 5: return { "isFraud": True }
+    filters = {"step": transaction.step, "nameOrig": transaction.nameOrig }
+    prev_transactions = query_transactions(conn, filters)
+    if len(list(prev_transactions)) >= 5: return { "isFraud": True }
 
     transaction = transform(transaction, type_encoder)
     features = to_dataframe(transaction)

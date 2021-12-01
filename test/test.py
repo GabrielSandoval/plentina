@@ -2,7 +2,7 @@ import requests
 
 # Fraud
 data = {
-    "step": 699,
+    "step": 700,
     "type": "TRANSFER",
     "amount": 162326.52,
     "nameOrig": "C1557504343",
@@ -15,7 +15,7 @@ data = {
 
 # Not fraud
 # data = {
-#     "step":1,
+#     "step":700,
 #     "type":"PAYMENT",
 #     "amount":9839.64,
 #     "nameOrig":"C1231006815",
@@ -26,5 +26,6 @@ data = {
 #     "newbalanceDest":0.0
 # }
 
-response = requests.post("http://ec2-44-198-192-99.compute-1.amazonaws.com/is-fraud", json=data)
+URL = "http://localhost:8080/is-fraud"
+response = requests.post(URL, json=data)
 print(response.json())
