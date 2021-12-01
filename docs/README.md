@@ -10,6 +10,7 @@
 |   └─── README.md                         <- Contains top-level information of this project
 │
 ├── lib
+|   ├── constants.py.example               <- Template for constants file storing values
 |   ├── transaction.py                     <- Basic Model for transaction reqquest
 │   └── utils.py                           <- Utility functions
 │
