@@ -49,8 +49,8 @@ pip install -r requirements.txt
 #### Test F1Score and Accuracy
 
 ```
-F1Score: 0.8028
-Accuracy: 0.9995
+F1Score: 0.8266
+Accuracy: 0.9996
 ```
 
 ### Run API locally
