@@ -26,6 +26,7 @@ data = {
 #     "newbalanceDest":0.0
 # }
 
-URL = "http://localhost:8080/is-fraud"
+# URL = "http://localhost:8080/is-fraud"
+URL = "http://ec2-3-231-160-226.compute-1.amazonaws.com/is-fraud"
 response = requests.post(URL, json=data)
 print(response.json())

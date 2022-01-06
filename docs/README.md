@@ -62,7 +62,7 @@ uvicorn app:app --host 0.0.0.0 --port 8080
 ### Deployed API endpoint:
 
 ```
-POST http://ec2-44-198-192-99.compute-1.amazonaws.com/is-fraud
+POST http://ec2-3-231-160-226.compute-1.amazonaws.com/is-fraud
 Params:
     "step": 699,
     "type": "TRANSFER",
